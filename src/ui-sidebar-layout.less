@@ -1,0 +1,40 @@
+@import "../node_modules/ui-styles/variables";
+@import "../node_modules/ui-styles/visual-elements";
+
+:host {
+  display: block;
+
+  #page {
+    overflow: hidden;
+  }
+  #sidebar {
+    background-color: @black;
+    max-width: 100%;
+    .transition(@transition);
+    .transform(translate3d(0,0,0));
+  }
+  #hamburger {
+    background-color: @black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 88888;
+    line-height: 2rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:before {
+      font-size: 2rem;
+      color: @white;
+      content: '\2261';
+    }
+  }
+  #application {
+    max-width: 100%;
+    .transition(@transition);
+    .transform(translate3d(0,0,0));
+  }
+}

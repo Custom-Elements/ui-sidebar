@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>ui-sidebar-layout</title>
+    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="node_modules/polymer/platform.js"></script>
+    <link rel="import" href="node_modules/polymer/polymer.html">
+    <link rel="stylesheet" href="node_modules/ui-styles/ui-styles.less">
+    <link rel="import" href="src/ui-sidebar-layout.html">
+    <style>
+      body {
+        font-family: "Helvetica Neue", "Helvetica", Arial;
+      }
+      application {
+        background-color: #efefef;
+        padding: 2em;
+      }
+    </style>
+  </head>
+  <body unresolved>
+      <ui-sidebar-layout fullscreen>
+        <sidebar>
+          <ul>
+            <li>Learn Things!</li>
+            <li>Do Things!</li>
+            <li>Make Things!</li>
+          </ul>
+        </sidebar>
+        <application fullscreen>
+          <h1>Ahoy!</h1>
+          <p>This is a very important application!</p>
+        </application>
+      </ui-sidebar-layout>
+    <script>
+      document.addEventListener('polymer-ready', function() {
+        //poke your element here
+      })
+    </script>
+  </body>
+</html>
