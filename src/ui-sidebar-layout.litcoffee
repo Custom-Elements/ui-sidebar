@@ -14,37 +14,42 @@ that the width of the layout itself. Same with the `application`. Scroll!
 ##Events
 
 ##Attributes and Change Handlers
+###no-hamburger
+If for some reason, you need to have a hamburger menu without the burger, pop
+this on `ui-sidebar-layout`. I'm assuming you will call `show/hide/toggle`.
 
 ##Methods
 ###resize
 Keeping the menu in line requires knowing how large the menu actually *is*.
 
       resize: ->
-        console.log 'sidebar', @$.sidebar.clientWidth
-        console.log 'application', @$.application.clientWidth
-        console.log @$.sidebar.style
+        if @$.hamburger.hasAttribute 'style'
+          @show()
 
 ###hide
 Hide that sidebar menu. This keeps some state in a transform.
 
       hide: ->
-        #@$.page.style['-webkit-transform'] = "translate3d(-#{@$.sidebar.clientWidth}px, 0, 0)"
+        @$.hamburger.removeAttribute 'style'
+        @$.application.removeAttribute 'style'
+        @$.sidebar.removeAttribute 'style'
 
 ###show
 Show the sidebar menu. This removes styles.
 
       show: ->
-        @$.page.removeAttribute 'style'
+        @$.hamburger.style['-webkit-transform'] = "translate3d(#{@$.sidebar.clientWidth}px, 0, 0)"
+        @$.application.style['-webkit-transform'] = "translate3d(#{@$.sidebar.clientWidth}px, 0, 0)"
 
 ###toggle
 Toggle the sidebar menu, using the styling to figure out if we should `show`
 or `hide`.
 
       toggle: ->
-        if @$.page.hasAttribute 'style'
-          @show()
-        else
+        if @$.hamburger.hasAttribute 'style'
           @hide()
+        else
+          @show()
 
 ##Event Handlers
 
@@ -60,7 +65,6 @@ or `hide`.
         window.addEventListener 'resize', =>
           @resize()
         @resize()
-        @hide()
 
       domReady: ->
 
