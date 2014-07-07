@@ -1,47 +1,9 @@
 @import "../node_modules/ui-styles/variables";
-@import "../node_modules/ui-styles/visual-elements";
 
-:host {
-  display: block;
-
-  #page {
-    overflow: hidden;
-  }
-  #sidebar {
-    background-color: @black;
-    max-width: 100%;
-  }
-  #hamburger {
-    background-color: @black;
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-    line-height: 2rem;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    &:before {
-      font-size: 2rem;
-      color: @white;
-      content: '\2261';
-    }
-    .transition(@transition);
-    .transform(translate3d(0,0,10px));
-    .box-shadow(0px 1px 1px fade(@black, @faded));
-  }
-  #application {
-    max-width: 100%;
-    .transition(@transition);
-    .transform(translate3d(0,0,0));
-  }
-}
-
-:host([no-hamburger]) {
-  #hamburger {
-    display: none;
+ui-sidebar {
+  padding: 1em;
+  color: @white;
+  li {
+    border-color: @white;
   }
 }

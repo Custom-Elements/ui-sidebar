@@ -1,0 +1,15 @@
+<link rel="stylesheet" type="text/css" href="./ui-sidebar-layout.less">
+<polymer-element name="ui-sidebar" attributes="">
+<template>
+  <link rel="stylesheet" type="text/css" href="./ui-sidebar.less">
+  <section id="page" leftdock layout horizontal>
+    <section id="sidebar">
+      <section id="sizer">
+        <content></content>
+      </section>
+    </section>
+    <section id="hamburger" on-click="{{toggle}}"></section>
+  </section>
+</template>
+<script src="./ui-sidebar.litcoffee"></script>
+</polymer-element>

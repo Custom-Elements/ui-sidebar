@@ -1,0 +1,42 @@
+@import "../node_modules/ui-styles/variables";
+@import "../node_modules/ui-styles/visual-elements";
+
+:host {
+  display: block;
+  overflow: hidden;
+
+  #page {
+    overflow: hidden;
+    z-index: 1000;
+    .transition(@transition);
+    .transform(translate3d(0,0,0px));
+  }
+  #sidebar {
+    .ultra-dark-tint;
+    padding: 1em;
+    .box-shadow(1px 1px 1px fade(@black, @faded));
+  }
+  #hamburger {
+    .ultra-dark-tint;
+    z-index: 1;
+    cursor: pointer;
+    line-height: 2rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:before {
+      font-size: 2rem;
+      color: @white;
+      content: '\2261';
+    }
+    .box-shadow(1px 1px 1px fade(@black, @faded));
+  }
+}
+
+:host([no-hamburger]) {
+  #hamburger {
+    display: none;
+  }
+}
